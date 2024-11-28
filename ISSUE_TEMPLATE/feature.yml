@@ -1,0 +1,66 @@
+name: Nova Task
+description: Modelo padrão para criação de Tasks.
+title: "[TASK] Título da Task"
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Dependências | Task Relacionada
+        (Descreva as dependências ou relacione com outra Task)
+
+        --------------
+  - type: textarea
+    id: description
+    attributes:
+      label: 📝 Descrição
+      description: Descreva detalhadamente a Task.
+      placeholder: "Explique o que precisa ser feito e qual o contexto."
+    validations:
+      required: false
+  - type: input
+    id: requested_by
+    attributes:
+      label: Solicitada por
+      description: Nome de quem solicitou esta Task.
+      placeholder: "e.g., Nome do solicitante"
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        --------------
+
+        ### 📋 CheckList
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: CheckList
+      description: Marque os itens concluídos.
+      options:
+        - label: Implementar
+          required: false
+  - type: markdown
+    attributes:
+      value: |
+        --------------
+
+        ### 📸 Anexo (Figma/Vídeo/Print)
+        (Adicione links ou informações sobre anexos aqui)
+
+        --------------
+
+        ### 📎 Informações Adicionais | Documentação
+        (Insira links para documentações ou informações adicionais, se necessário)
+
+        --------------
+
+        ### ✅ **Definição de Pronto**
+  - type: checkboxes
+    id: definition_of_done
+    attributes:
+      label: Definição de Pronto
+      description: Marque os itens concluídos para considerar a Task como pronta.
+      options:
+        - label: Devidamente testada em local/dev (AWS) pelo desenvolvedor da feature.
+        - label: Devidamente testada em Staging/prod por Heric (e responsável pela feature).
